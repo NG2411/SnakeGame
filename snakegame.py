@@ -38,7 +38,7 @@ class game1:
         
         
         
-    def again(self):
+    def redo(self):
         self.points = []
         self.lengths = []
         self.currentlength = 0
@@ -47,8 +47,8 @@ class game1:
         self.score = 0
         self.gameover = False
         
-    def randomfood(self):
-        self.foodpoint= random.randint(100,600),random.randint(100,400)
+    def randomdonut(self):
+        self.donutpoint= random.randint(100,600),random.randint(150,450)
           
     def update(self,imgmain,currenthead):
         
@@ -75,7 +75,7 @@ class game1:
                     break
         rx,ry=self.foodpoint        
         if rx-self.wfood//2<cx<rx+self.wfood//2 and  ry-self.hfood//2<cy<ry+self.hfood//2:
-            self.randomfood()
+            self.randomdonut()
             self.allowedlength +=5
             self.score+=1
             
@@ -87,7 +87,7 @@ class game1:
                 cv2.line(imgmain,self.points[i-1],self.points[i],(0,0,255),10)
           cv2.circle(imgmain,self.points[-1],10,(0,200,0),cv2.FILLED)
         
-        rx,ry=self.foodpoint
+        rx,ry=self.donutpoint
         imgmain=cvzone.overlayPNG(imgmain,self.foodimg,(rx-self.wfood//2,ry-self.hfood//2))
         cvzone.putTextRect(imgmain,f"Score:{self.score}",(20,40),scale=2,thickness=1,offset=10)
         
