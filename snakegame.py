@@ -34,9 +34,7 @@ class game1:
         self.foodimg= cv2.imread(foodpath, cv2.IMREAD_UNCHANGED)
         self.hfood,self.wfood,_=self.foodimg.shape
         self.foodpoint=0,0
-        self.randomfood()
-        
-        
+        self.randomdonut()
         
     def redo(self):
         self.points = []
@@ -48,7 +46,7 @@ class game1:
         self.gameover = False
         
     def randomdonut(self):
-        self.donutpoint= random.randint(100,600),random.randint(150,450)
+        self.foodpointrandint(100,600),random.randint(100,400)
           
     def update(self,imgmain,currenthead):
         
@@ -87,7 +85,7 @@ class game1:
                 cv2.line(imgmain,self.points[i-1],self.points[i],(0,0,255),10)
           cv2.circle(imgmain,self.points[-1],10,(0,200,0),cv2.FILLED)
         
-        rx,ry=self.donutpoint
+        rx,ry=self.foodpoint
         imgmain=cvzone.overlayPNG(imgmain,self.foodimg,(rx-self.wfood//2,ry-self.hfood//2))
         cvzone.putTextRect(imgmain,f"Score:{self.score}",(20,40),scale=2,thickness=1,offset=10)
         
