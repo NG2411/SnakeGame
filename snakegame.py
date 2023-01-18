@@ -104,7 +104,7 @@ class game1:
             self.currentlength = 0  
             self.allowedlength = 50  
             self.previoushead = 0, 0  
-            self.randomfood()
+            self.randomdonut()
    
                                   
        return imgmain  
@@ -121,4 +121,4 @@ while True:
     cv2.imshow("GAME",img)
     key=cv2.waitKey(1)
     if key==ord('r'):
-        game.again()
+        game.redo()
